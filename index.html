@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Truth Podcast — Question Everything</title>
+<meta name="description" content="The Truth Podcast: Question Everything. Episodes, articles and video mirrors. Subscribe free on Spotify, Apple Podcasts, Rumble, PodBean and more.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://truth-podcast.com/">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Truth Podcast">
+<meta property="og:title" content="The Truth Podcast — Question Everything">
+<meta property="og:description" content="Episodes, articles and video mirrors. Subscribe free on Spotify, Apple Podcasts, Rumble, PodBean and more.">
+<meta property="og:url" content="https://truth-podcast.com/">
+<meta property="og:image" content="https://truth-podcast.com/assets/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Truth Podcast — Question Everything">
+<meta name="twitter:description" content="Episodes, articles and video mirrors. Subscribe free on every major platform.">
+<meta name="twitter:image" content="https://truth-podcast.com/assets/og-cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS — pulled from the logo ============ */
+:root{
+  --void:#000000;        /* logo background — true black */
+  --deck:#080B07;        /* panel surfaces, faintly green-shifted */
+  --deck-2:#0E140C;      /* raised surfaces */
+  --rule:#1D2A19;        /* green-tinted hairlines */
+  --volt:#76FB04;        /* logo green */
+  --volt-dim:#4FBE03;    /* mid green */
+  --moss:#1C6800;        /* deep green from the logo's shadow edges */
+  --paper:#E6E9E5;       /* body text */
+  --dim:#778573;         /* secondary text */
+
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+
+  --bar-h:58px;
+  --pad:clamp(20px,5vw,64px);
+  --maxw:1240px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--void);
+  color:var(--paper);
+  font-family:var(--body);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--volt);outline-offset:3px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* chrome lettering — mirrors the logo's metallic "TRUTH" */
+.chrome{
+  background:linear-gradient(180deg,#FFFFFF 0%,#F4F5F4 34%,#A9B2A9 51%,#FBFCFB 63%,#C6CDC6 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.9)) drop-shadow(0 0 22px rgba(118,251,4,.28));
+}
+.volt{color:var(--volt)}
+
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.kicker--volt{color:var(--volt)}
+
+/* ============ MASTER BAR ============ */
+.mcr{
+  position:sticky;top:0;z-index:60;height:var(--bar-h);
+  background:rgba(0,0,0,.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.mcr__in{
+  max-width:var(--maxw);margin:0 auto;height:100%;
+  padding-left:var(--pad);padding-right:var(--pad);
+  display:flex;align-items:center;gap:16px;
+}
+.ident{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.ident img{width:34px;height:34px;border-radius:3px}
+.ident__txt{
+  font-family:var(--display);font-weight:800;font-stretch:118%;
+  font-size:14px;letter-spacing:.02em;text-transform:uppercase;line-height:1;
+}
+.ident__txt span{display:block;font-size:8.5px;letter-spacing:.28em;color:var(--volt);margin-top:3px;font-weight:600;font-stretch:100%}
+
+/* live equalizer — the logo's waveform, miniaturised */
+.eq{display:flex;align-items:flex-end;gap:2px;height:16px}
+.eq i{width:2px;background:var(--volt);border-radius:1px;animation:eqb 1.1s ease-in-out infinite}
+.eq i:nth-child(1){height:40%;animation-delay:0s}
+.eq i:nth-child(2){height:80%;animation-delay:.14s}
+.eq i:nth-child(3){height:55%;animation-delay:.28s}
+.eq i:nth-child(4){height:100%;animation-delay:.42s}
+.eq i:nth-child(5){height:65%;animation-delay:.56s}
+@keyframes eqb{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.live{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--volt)}
+
+.mcr__spacer{flex:1}
+.nav{display:flex;gap:2px;align-items:center}
+.nav a{
+  font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--dim);padding:7px 11px;border-radius:2px;transition:color .15s,background .15s;
+}
+.nav a:hover{color:var(--paper);background:var(--deck-2)}
+.nav a.is-active{color:#000;background:var(--volt);font-weight:600}
+.burger{
+  display:none;background:none;border:1px solid var(--rule);color:var(--paper);
+  font-family:var(--mono);font-size:11px;letter-spacing:.13em;padding:8px 12px;
+  cursor:pointer;border-radius:2px;
+}
+.burger:hover{border-color:var(--volt);color:var(--volt)}
+
+/* ============ HERO ============ */
+.hero{position:relative;border-bottom:1px solid var(--rule);overflow:hidden;background:var(--void)}
+#wave{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(58% 48% at 50% 34%, rgba(118,251,4,.14) 0%, rgba(118,251,4,0) 70%);
+}
+.hero__in{
+  position:relative;z-index:3;max-width:var(--maxw);margin:0 auto;
+  padding:clamp(34px,5vw,60px) var(--pad) clamp(44px,6vw,72px);
+  text-align:center;
+}
+.hero__logo{
+  width:clamp(230px,42vw,380px);margin:0 auto clamp(24px,3.5vw,36px);
+  filter:drop-shadow(0 0 60px rgba(118,251,4,.30));
+}
+.divider{
+  display:flex;align-items:center;gap:14px;justify-content:center;
+  margin:0 auto clamp(22px,3vw,32px);max-width:520px;
+}
+.divider span{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--moss),transparent)}
+.divider b{font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:var(--volt);font-weight:500}
+
+.chip{
+  display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;padding:5px 10px;border:1px solid var(--rule);
+  color:var(--dim);border-radius:2px;margin:0 4px 14px;
+}
+.chip--live{border-color:rgba(118,251,4,.45);color:var(--volt)}
+
+.hero h1{
+  font-family:var(--display);font-weight:900;font-stretch:122%;
+  font-size:clamp(46px,10.5vw,124px);line-height:.86;letter-spacing:-.03em;
+  text-transform:uppercase;margin-bottom:18px;
+}
+.hero__meta{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;
+  color:var(--dim);text-transform:uppercase;margin-bottom:30px;
+}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  padding:14px 24px;border-radius:2px;font-weight:600;cursor:pointer;
+  border:1px solid var(--volt);background:var(--volt);color:#000;
+  transition:transform .15s,box-shadow .15s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(118,251,4,.45)}
+.btn--ghost{background:transparent;color:var(--paper);border-color:var(--rule)}
+.btn--ghost:hover{border-color:var(--volt);color:var(--volt);box-shadow:none}
+
+/* ============ SECTIONS ============ */
+.sec{padding:clamp(52px,7vw,86px) 0;border-bottom:1px solid var(--rule)}
+.sec:last-of-type{border-bottom:0}
+.sec__head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--rule);
+}
+.sec__head h2{
+  font-family:var(--display);font-weight:800;font-stretch:118%;
+  font-size:clamp(26px,4.6vw,44px);line-height:1;letter-spacing:-.015em;text-transform:uppercase;
+}
+.sec__note{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--volt)}
+.sec__note:hover{text-decoration:underline}
+
+/* ---- episode log ---- */
+.log{border-top:1px solid var(--rule)}
+.slip{
+  display:grid;grid-template-columns:96px 1fr 132px 26px;align-items:center;gap:18px;
+  padding:17px 6px;border-bottom:1px solid var(--rule);
+  border-left:2px solid transparent;transition:background .15s,border-color .15s,padding-left .15s;
+}
+.slip:hover{background:var(--deck);border-left-color:var(--volt);padding-left:16px}
+.slip__tc{font-family:var(--mono);font-size:11.5px;color:var(--volt);letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.slip__title{
+  font-family:var(--display);font-weight:700;font-stretch:112%;
+  font-size:clamp(16px,2.3vw,21px);line-height:1.15;text-transform:uppercase;
+}
+.slip__src{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;color:var(--dim);text-transform:uppercase}
+.slip__go{font-family:var(--mono);font-size:15px;color:var(--dim);text-align:right}
+.slip:hover .slip__go{color:var(--volt)}
+
+/* ---- cards ---- */
+.grid{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:var(--void);padding:26px 22px 24px;display:flex;flex-direction:column;
+  gap:13px;min-height:190px;transition:background .18s,box-shadow .18s;
+}
+.card:hover{background:var(--deck);box-shadow:inset 0 2px 0 var(--volt)}
+.card__no{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--volt)}
+.card__title{
+  font-family:var(--display);font-weight:700;font-stretch:110%;font-size:19px;
+  line-height:1.15;text-transform:uppercase;flex:1;
+}
+.card__meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+
+/* ---- platform feed ---- */
+.feed{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.feed a{
+  background:var(--deck);padding:26px 16px;text-align:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;min-height:112px;transition:background .18s,color .18s;
+}
+.feed a:hover{background:var(--volt);color:#000}
+.feed__name{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:15px;text-transform:uppercase}
+.feed__kind{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+.feed a:hover .feed__kind{color:rgba(0,0,0,.65)}
+
+/* ---- panels ---- */
+.panel{background:var(--deck);border:1px solid var(--rule);padding:clamp(24px,4vw,40px);border-radius:3px}
+.panel h3{font-family:var(--display);font-weight:800;font-stretch:114%;font-size:22px;text-transform:uppercase;margin-bottom:14px}
+.panel p{color:var(--dim);max-width:62ch}
+.todo{
+  border-left:2px solid var(--volt);background:rgba(118,251,4,.06);padding:14px 18px;
+  font-family:var(--mono);font-size:12px;color:var(--volt);letter-spacing:.03em;
+  margin:20px 0;line-height:1.65;
+}
+.stack{display:flex;flex-direction:column;gap:20px}
+.lede{font-size:clamp(16px,2.3vw,19px);color:var(--dim);max-width:64ch;line-height:1.55}
+
+/* ============ INTERIOR PAGE HEADERS ============ */
+.phead{
+  position:relative;border-bottom:1px solid var(--rule);
+  padding:clamp(34px,5vw,58px) 0 clamp(28px,4vw,44px);
+  background:radial-gradient(70% 130% at 12% 0%, rgba(118,251,4,.10) 0%, rgba(0,0,0,0) 62%);
+}
+.phead__in{display:flex;align-items:center;gap:clamp(18px,3vw,34px)}
+.phead__mark{
+  width:clamp(76px,11vw,116px);flex:none;border-radius:4px;
+  filter:drop-shadow(0 0 26px rgba(118,251,4,.28));
+}
+.phead h1{
+  font-family:var(--display);font-weight:900;font-stretch:120%;
+  font-size:clamp(32px,7vw,74px);line-height:.9;letter-spacing:-.025em;
+  text-transform:uppercase;margin:10px 0 14px;
+}
+
+/* ============ FOOTER ============ */
+.foot{border-top:1px solid var(--rule);padding:46px 0 58px;background:#000}
+.foot__in{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+.foot__brand{display:flex;align-items:center;gap:14px}
+.foot__brand img{width:64px;border-radius:4px}
+.foot__links{display:flex;flex-wrap:wrap;gap:16px}
+.foot__links a{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+.foot__links a:hover{color:var(--volt)}
+.foot__copy{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:#4A5548;line-height:1.8}
+
+/* ============ ROUTING ============ */
+.page{display:none}
+.page.is-on{display:block}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+  .grid--3{grid-template-columns:repeat(2,1fr)}
+  .feed{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  .nav{
+    display:none;position:fixed;top:var(--bar-h);left:0;right:0;flex-direction:column;
+    align-items:stretch;gap:0;background:var(--deck);border-bottom:1px solid var(--rule);padding:8px;
+  }
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 12px;font-size:12px}
+  .burger{display:block}
+  .live{display:none}
+}
+@media (max-width:640px){
+  .grid--3,.grid--2{grid-template-columns:1fr}
+  .feed{grid-template-columns:repeat(2,1fr)}
+  .slip{grid-template-columns:58px 1fr 22px;gap:12px;padding:15px 4px}
+  .slip__src{display:none}
+  .slip:hover{padding-left:8px}
+  .btns{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  .phead__in{flex-direction:column;align-items:flex-start;gap:18px}
+  .foot__in{flex-direction:column}
+  .ident__txt{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="mcr">
+  <div class="mcr__in">
+    <a href="#/" class="ident">
+      <img src="assets/logo-mark.png" width="34" height="34" alt="The Truth Podcast">
+      <span class="ident__txt">Truth Podcast<span>Question Everything</span></span>
+    </a>
+    <div class="live"><span class="eq"><i></i><i></i><i></i><i></i><i></i></span>ON AIR</div>
+    <div class="mcr__spacer"></div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">MENU</button>
+    <nav class="nav" id="nav">
+      <a href="#/">Home</a>
+      <a href="#/episodes">Episodes</a>
+      <a href="#/articles">Articles</a>
+      <a href="#/mirrors">Mirrors</a>
+      <a href="#/quest">$QUEST</a>
+      <a href="#/subscribe">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section class="page" id="p-home">
+  <div class="hero">
+    <canvas id="wave" aria-hidden="true"></canvas>
+    <div class="hero__in">
+      <img class="hero__logo" src="assets/logo.jpg" alt="The Truth Podcast — Question Everything">
+      <div class="divider"><span></span><b>LATEST FEATURE</b><span></span></div>
+      <span class="chip chip--live">● Documentary</span><span class="chip">Rumble</span>
+      <h1 class="chrome">Depopulation</h1>
+      <div class="hero__meta">Feature presentation &nbsp;·&nbsp; Watch free on Rumble</div>
+      <div class="btns">
+        <a class="btn" href="https://rumble.com/v2qvup0-depopulation.html" target="_blank" rel="noopener">▶ Watch the feature</a>
+        <a class="btn btn--ghost" href="#/subscribe">Subscribe free</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="sec__head"><h2>Episode log</h2><a class="sec__note" href="#/episodes">View full log →</a></div>
+    <div class="log" id="log-preview"></div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="sec__head"><h2>Articles</h2><a class="sec__note" href="#/articles">All articles →</a></div>
+    <div class="grid grid--3" id="art-preview"></div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="sec__head"><h2>Carry the feed</h2><span class="sec__note">Free everywhere</span></div>
+    <div class="feed" id="feed-home"></div>
+  </div>
+</section>
+
+<!-- ================= EPISODES ================= -->
+<section class="page" id="p-episodes">
+  <div class="phead"><div class="wrap phead__in">
+    <img class="phead__mark" src="assets/logo.jpg" loading="lazy" alt="">
+    <div>
+      <div class="kicker kicker--volt">Section 01</div>
+      <h1 class="chrome">Episode log</h1>
+      <p class="lede">Every episode, logged by source. Rumble carries the primary video feed; audio mirrors run on Spotify, Apple Podcasts, PodBean and iHeartRadio.</p>
+    </div>
+  </div></div>
+  <div class="wrap sec"><div class="log" id="log-full"></div></div>
+</section>
+
+<!-- ================= ARTICLES ================= -->
+<section class="page" id="p-articles">
+  <div class="phead"><div class="wrap phead__in">
+    <img class="phead__mark" src="assets/logo.jpg" loading="lazy" alt="">
+    <div>
+      <div class="kicker kicker--volt">Section 02</div>
+      <h1 class="chrome">Articles</h1>
+      <p class="lede">Long-form written companions to the show, newest first.</p>
+    </div>
+  </div></div>
+  <div class="wrap sec"><div class="grid grid--2" id="art-full"></div></div>
+</section>
+
+<!-- ================= MIRRORS ================= -->
+<section class="page" id="p-mirrors">
+  <div class="phead"><div class="wrap phead__in">
+    <img class="phead__mark" src="assets/logo.jpg" loading="lazy" alt="">
+    <div>
+      <div class="kicker kicker--volt">Section 03</div>
+      <h1 class="chrome">Video mirrors</h1>
+      <p class="lede">Backup copies of the video feed on BitChute and Brighteon, kept in case a primary upload goes down.</p>
+    </div>
+  </div></div>
+  <div class="wrap sec">
+    <div class="todo">TODO — these mirrors have no titles on the live site. Replace the placeholder labels with the real episode names so they're searchable and shareable.</div>
+    <div class="grid grid--3" id="mirror-full"></div>
+  </div>
+</section>
+
+<!-- ================= QUEST ================= -->
+<section class="page" id="p-quest">
+  <div class="phead"><div class="wrap phead__in">
+    <img class="phead__mark" src="assets/logo.jpg" loading="lazy" alt="">
+    <div>
+      <div class="kicker kicker--volt">Section 04</div>
+      <h1 class="chrome">$QUEST</h1>
+      <p class="lede">The community token attached to the show.</p>
+    </div>
+  </div></div>
+  <div class="wrap sec">
+    <div class="stack">
+      <div class="todo">TODO — structure only. I didn't invent a contract address, chain, supply or launch date. Send the real details (or point me at getquestiq.com) and I'll fill it in properly.</div>
+      <div class="grid grid--2">
+        <div class="card"><div class="card__no">01</div><div class="card__title">What it is</div><div class="card__meta">Add a two-sentence plain description</div></div>
+        <div class="card"><div class="card__no">02</div><div class="card__title">Where to buy</div><div class="card__meta">Exchange or launchpad links</div></div>
+        <div class="card"><div class="card__no">03</div><div class="card__title">Contract address</div><div class="card__meta">With one-tap copy button</div></div>
+        <div class="card"><div class="card__no">04</div><div class="card__title">Supply &amp; allocation</div><div class="card__meta">Chart or simple table</div></div>
+      </div>
+      <div class="panel">
+        <h3>Before this page goes live</h3>
+        <p>Anything involving a token needs a visible risk disclaimer and a clear statement that nothing here is financial advice — both for your own protection and because most ad platforms and app stores reject a crypto page without one. Put it directly under the buy button, not buried in the footer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUBSCRIBE ================= -->
+<section class="page" id="p-subscribe">
+  <div class="phead"><div class="wrap phead__in">
+    <img class="phead__mark" src="assets/logo.jpg" loading="lazy" alt="">
+    <div>
+      <div class="kicker kicker--volt">Section 05</div>
+      <h1 class="chrome">Subscribe</h1>
+      <p class="lede">Pick your platform. Everything is free — subscribing is what keeps the show visible in the charts.</p>
+    </div>
+  </div></div>
+  <div class="wrap sec"><div class="feed" id="feed-sub"></div></div>
+  <div class="wrap sec">
+    <div class="sec__head"><h2>Get in touch</h2></div>
+    <div class="grid grid--2">
+      <a class="card" href="https://www.instagram.com/qepodcast" target="_blank" rel="noopener">
+        <div class="card__no">DM</div><div class="card__title">Instagram</div><div class="card__meta">@qepodcast</div>
+      </a>
+      <a class="card" href="mailto:hello@truth-podcast.com">
+        <div class="card__no">Email</div><div class="card__title">Show inbox</div><div class="card__meta">TODO — swap in your real address</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <img src="assets/logo.jpg" loading="lazy" width="64" height="64" alt="The Truth Podcast">
+      <div>
+        <div class="ident__txt">Truth Podcast</div>
+        <div class="kicker kicker--volt" style="margin-top:6px">Question Everything</div>
+      </div>
+    </div>
+    <div class="foot__links">
+      <a href="#/episodes">Episodes</a><a href="#/articles">Articles</a><a href="#/mirrors">Mirrors</a>
+      <a href="#/quest">$QUEST</a><a href="#/subscribe">Subscribe</a>
+    </div>
+    <div class="foot__copy">©2019–2026 Truth-Podcast.com<br>All rights reserved</div>
+  </div>
+</footer>
+
+<script>
+/* ---------------- DATA ---------------- */
+const EPISODES = [
+  {t:"Depopulation", src:"Rumble", u:"https://rumble.com/v2qvup0-depopulation.html"},
+  {t:"Hollywood and the CIA Connection", src:"Rumble", u:"https://rumble.com/vbzxix-hollywood-and-the-cia-connection.html"},
+  {t:"Climate Change: The Biggest Hoax Ever", src:"Rumble", u:"https://rumble.com/vbzxeh-climate-change-the-biggest-hoax-ever.html"},
+  {t:"The Shocking Truth About Vaccines: The Ingredients", src:"Rumble", u:"https://rumble.com/vbzhql-the-shocking-truth-about-vaccines-the-ingredients.html"},
+  {t:"Do Vaccines Cause Autism?", src:"Rumble", u:"https://rumble.com/vbz7x1-do-vaccines-cause-autism.html"},
+  {t:"What Really Happened to Kobe Bryant", src:"Rumble", u:"https://rumble.com/vbooth-what-really-happened-to-kobe-bryant.html"},
+  {t:"Why Do So Many Children Go Missing?", src:"Rumble", u:"https://rumble.com/vbo8sj-why-do-so-many-children-go-missing.html"},
+  {t:"What Is MK Ultra Mind Control?", src:"Rumble", u:"https://rumble.com/vbn9wp-what-is-mk-ultra-mind-control.html"},
+  {t:"What Is Predictive Programming?", src:"Rumble", u:"https://rumble.com/vbn9ar-what-is-predictive-programming.html"},
+  {t:"What's Wrong With Watching Porn?", src:"Rumble", u:"https://rumble.com/vbjy0v-whats-wrong-with-watching-porn.html"},
+  {t:"Symbolism Will Be Their Downfall", src:"Rumble", u:"https://rumble.com/vb1wzl-symbolism-will-be-their-downfall.html"},
+  {t:"The Normalization of Pedophilia", src:"Rumble", u:"https://rumble.com/vawwzb-the-normalization-of-pedophilia.html"},
+  {t:"What Are Crisis Actors?", src:"Rumble", u:"https://rumble.com/vatp6p-what-are-crisis-actors.html"},
+  {t:"President Biden", src:"Rumble", u:"https://rumble.com/vakc6n-president-biden.html"}
+];
+const ARTICLES = [
+  {t:"PROOF The United States IS A Corporation", d:"Aug 9, 2023", r:"8 min", u:"https://truthpodcast.wixsite.com/home/post/is-the-united-states-a-corporation"},
+  {t:"Who Really Runs The World?", d:"May 27, 2023", r:"13 min", u:"https://truthpodcast.wixsite.com/home/post/who-really-runs-the-world"},
+  {t:"The Next Plandemic? What is the 'SPARS Pandemic 2025–2028' Simulation?", d:"Mar 26, 2023", r:"6 min", u:"https://truthpodcast.wixsite.com/home/post/the-next-plandemic-what-is-the-spars-pandemic-2025-2028-simulation"},
+  {t:"Egg Yolks Fight the Covid mRNA Spike Protein", d:"Feb 5, 2023", r:"4 min", u:"https://truthpodcast.wixsite.com/home/post/egg-yolks-fight-spike-protein"},
+  {t:"The Shocking 2025 'Deagel' Forecast That Predicts Mass Depopulation", d:"Dec 19, 2022", r:"4 min", u:"https://truthpodcast.wixsite.com/home/post/the-shocking-2025-deagel-forecast-that-predicts-mass-depopulation"},
+  {t:"FALSE POSITIVE: The Truth About The PCR Covid Tests", d:"Aug 8, 2021", r:"24 min", u:"https://truthpodcast.wixsite.com/home/post/false-positive-the-truth-about-the-pcr-covid-tests"}
+];
+const MIRRORS = [
+  "https://www.bitchute.com/video/tZiRDi01zmla/","https://www.bitchute.com/video/HZiQq6YjRzI/",
+  "https://www.bitchute.com/video/lFxWCtJwnnQR/","https://www.bitchute.com/video/AfFT9Qm0t2GJ/",
+  "https://www.bitchute.com/video/7brLxA8dRX7Q/","https://www.bitchute.com/video/R3ceV64oFrRV/"
+];
+const FEED = [
+  {n:"Spotify", k:"Audio", u:"https://open.spotify.com/show/7KPqfiZB8XNcltDK4cfagy"},
+  {n:"Apple Podcasts", k:"Audio", u:"https://podcasts.apple.com/us/podcast/the-truth-podcast-question-everything/id1478881556"},
+  {n:"PodBean", k:"Audio", u:"https://thetruthpodcast.podbean.com/"},
+  {n:"iHeartRadio", k:"Audio", u:"https://iheart.com/podcast/84995027/"},
+  {n:"Rumble", k:"Video · Primary", u:"https://rumble.com/c/TheTruthPodcast"},
+  {n:"YouTube", k:"Video", u:"https://www.youtube.com/channel/UCnFGzl0_SGk-xPGRs1lEkTw/"},
+  {n:"BitChute", k:"Video · Mirror", u:"https://www.bitchute.com/channel/truthpodcastqe/"},
+  {n:"Brighteon", k:"Video · Mirror", u:"https://www.brighteon.com/channel/thetruthpodcast"},
+  {n:"Gab", k:"Social", u:"https://gab.com/thehandsomepatriot"},
+  {n:"Instagram", k:"Social", u:"https://www.instagram.com/qepodcast"}
+];
+
+/* ---------------- RENDER ---------------- */
+const pad = n => String(n).padStart(2,'0');
+const slip = (ep,i) => `<a class="slip" href="${ep.u}" target="_blank" rel="noopener">
+  <div class="slip__tc">EP ${pad(EPISODES.length-i)}</div>
+  <div class="slip__title">${ep.t}</div>
+  <div class="slip__src">${ep.src}</div>
+  <div class="slip__go">↗</div></a>`;
+const artCard = (a,i) => `<a class="card" href="${a.u}" target="_blank" rel="noopener">
+  <div class="card__no">${pad(i+1)}</div>
+  <div class="card__title">${a.t}</div>
+  <div class="card__meta">${a.d} &nbsp;·&nbsp; ${a.r} read</div></a>`;
+const feedCard = f => `<a href="${f.u}" target="_blank" rel="noopener">
+  <div class="feed__name">${f.n}</div><div class="feed__kind">${f.k}</div></a>`;
+
+document.getElementById('log-preview').innerHTML = EPISODES.slice(0,6).map(slip).join('');
+document.getElementById('log-full').innerHTML    = EPISODES.map(slip).join('');
+document.getElementById('art-preview').innerHTML = ARTICLES.slice(0,3).map(artCard).join('');
+document.getElementById('art-full').innerHTML    = ARTICLES.map(artCard).join('');
+document.getElementById('feed-home').innerHTML   = FEED.map(feedCard).join('');
+document.getElementById('feed-sub').innerHTML    = FEED.map(feedCard).join('');
+document.getElementById('mirror-full').innerHTML = MIRRORS.map((u,i)=>
+  `<a class="card" href="${u}" target="_blank" rel="noopener">
+    <div class="card__no">MIRROR ${pad(i+1)}</div>
+    <div class="card__title">Untitled mirror</div>
+    <div class="card__meta">BitChute · add title</div></a>`).join('');
+
+/* ---------------- ROUTER ---------------- */
+const ROUTES = {'#/':'p-home','#/episodes':'p-episodes','#/articles':'p-articles','#/mirrors':'p-mirrors','#/quest':'p-quest','#/subscribe':'p-subscribe'};
+const nav = document.getElementById('nav'), burger = document.getElementById('burger');
+function route(){
+  const hash = ROUTES[location.hash] ? location.hash : '#/';
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('is-on'));
+  document.getElementById(ROUTES[hash]).classList.add('is-on');
+  nav.querySelectorAll('a').forEach(a=>a.classList.toggle('is-active',a.getAttribute('href')===hash));
+  nav.classList.remove('is-open'); burger.setAttribute('aria-expanded','false');
+  window.scrollTo(0,0);
+  if(hash==='#/') sizeWave();
+}
+window.addEventListener('hashchange',route);
+burger.addEventListener('click',()=>{
+  const open = nav.classList.toggle('is-open');
+  burger.setAttribute('aria-expanded',String(open));
+});
+
+/* ---------------- WAVEFORM (echoes the logo art) ---------------- */
+const cv = document.getElementById('wave'), ctx = cv.getContext('2d');
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let W=0,H=0,BARS=[],t=0;
+
+function sizeWave(){
+  const r = cv.parentElement.getBoundingClientRect();
+  const dpr = Math.min(window.devicePixelRatio||1,2);
+  W = r.width; H = r.height;
+  cv.width = W*dpr; cv.height = H*dpr;
+  cv.style.width = W+'px'; cv.style.height = H+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const step = 7, n = Math.ceil(W/step);
+  BARS = Array.from({length:n},(_,i)=>({x:i*step, seed:Math.random()*Math.PI*2, i, n}));
+  draw();
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  const mid = H/2;
+  for(const b of BARS){
+    // taller toward the edges, quiet behind the logo — keeps the centre readable
+    const edge = Math.abs((b.i/b.n)-0.5)*2;
+    const env = 0.18 + Math.pow(edge,1.9)*0.82;
+    const wob = Math.sin(t*1.4 + b.seed) * 0.5 + Math.sin(t*2.6 + b.seed*1.7) * 0.3;
+    const h = Math.max(2, (0.14 + Math.abs(wob)*0.5) * env * H);
+    const a = 0.14 + env*0.5;
+    ctx.fillStyle = `rgba(118,251,4,${a})`;
+    ctx.fillRect(b.x, mid-h/2, 3, h);
+  }
+}
+function loop(){ t += 0.012; draw(); requestAnimationFrame(loop); }
+window.addEventListener('resize', sizeWave);
+
+route();
+sizeWave();
+if(!reduced) loop();
+</script>
+</body>
+</html>
